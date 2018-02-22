@@ -1,6 +1,13 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import TodoForm from '../components/TodoForm'
+import { connect } from 'react-redux'
 
-export default reduxForm({ form: 'todoForm' })(TodoForm)
+import TodoFormComponent from '../components/TodoForm'
+import { addTodo } from '../actions/todo'
 
+const TodoForm = ({ addTodo, values }) => (
+  <TodoFormComponent
+    onSubmit={ values => addTodo(values.todoText) }
+  />
+)
+
+export default connect(null, { addTodo })(TodoForm)

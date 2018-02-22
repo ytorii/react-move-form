@@ -1,7 +1,7 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
-export default props => {
+const TodoForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
@@ -9,7 +9,7 @@ export default props => {
         <label>Todo</label>
         <div>
           <Field
-            name="todo"
+            name="todoText"
             component="input"
             type="text"
             placeholder="Input your TODO"
@@ -25,3 +25,5 @@ export default props => {
     </form>
   );
 };
+
+export default reduxForm({ form: 'todoForm' })(TodoForm)

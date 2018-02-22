@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Provider } from "react-redux"
-import store from "./store"
+import { Provider } from 'react-redux'
+import store from './store'
 
-import TodoForm from "./containers/TodoForm"
-import TodoList from "./components/TodoList"
+import TodoForm from './containers/TodoForm'
+import TodoList from './components/TodoList'
 
 import './css/App.css'
 import './css/Body.css'
@@ -24,7 +24,7 @@ class App extends Component {
             <h1 className="App-title">React-Move exercise!</h1>
           </header>
           <div className="Body">
-            <TodoForm onSubmit={() => {}} />
+            <TodoForm />
             <TodoList todos={todos} />
           </div>
         </div>
