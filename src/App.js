@@ -3,17 +3,10 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import TodoForm from './containers/TodoForm'
-import TodoList from './components/TodoList'
+import TodoList from './containers/TodoList'
 
 import './css/App.css'
 import './css/Body.css'
-
-const todos = [
-  { id: 1, text: 'Go to Company' },
-  { id: 2, text: 'Learn about domains' },
-]
-
-
 
 class App extends Component {
   render() {
@@ -25,7 +18,7 @@ class App extends Component {
           </header>
           <div className="Body">
             <TodoForm />
-            <TodoList todos={todos} />
+            <TodoList />
           </div>
         </div>
      </Provider>
