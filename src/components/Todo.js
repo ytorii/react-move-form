@@ -1,12 +1,7 @@
 import React from 'react'
 
 export default props => (
-  <li
-    onClick={props.onClick}
-    style={ {
-      textDecoration: props.completed ? 'line-through' : 'none'
-    }}
-  >
-    { props.text }
-  </li>
+  <g key={props.id} onClick={props.onClick} >
+    <text>{props.text}</text>
+  </g>
 )
