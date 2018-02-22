@@ -20,10 +20,7 @@ const addTodo = (state, action) => {
 const completeTodo = (state, action) => {
   const targetId = action.payload
   return { ...state,
-    todos: state.todos.map(todo =>
-      (todo.id === targetId)
-        ? { ...todo, completed: !todo.completed} : todo
-    )
+    todos: state.todos.filter(todo => todo.id !== targetId)
   }
 }
 

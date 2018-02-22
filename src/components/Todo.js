@@ -1,7 +1,16 @@
 import React from 'react'
 
 export default props => (
-  <g key={props.id} onClick={props.onClick} >
-    <text>{props.text}</text>
-  </g>
+  <div
+    key={props.id}
+    onClick={props.onClick}
+    style={{
+      position: 'absolute',
+      transform: `translate(${props.x}px, ${props.id * 20}px)`,
+      opacity: props.opacity,
+      color: props.color,
+    }}
+  >
+    {props.text}
+  </div>
 )

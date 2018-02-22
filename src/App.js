@@ -6,7 +6,6 @@ import TodoForm from './containers/TodoForm'
 import TodoList from './containers/TodoList'
 
 import './css/App.css'
-import './css/Body.css'
 
 class App extends Component {
   render() {
@@ -16,7 +15,7 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title">React-Move exercise!</h1>
           </header>
-          <div className="Body">
+          <div>
             <TodoForm />
             <TodoList />
           </div>
