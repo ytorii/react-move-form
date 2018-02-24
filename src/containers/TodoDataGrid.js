@@ -1,11 +1,10 @@
 import { connect } from 'react-redux'
 
-import { editTodo } from '../actions/todo'
+import { editTodo, filterTodos, sortTodos } from '../actions/todo'
 import TodoDataGrid from '../components/TodoDataGrid'
 
-const mapStateToProps = state => ({
-  todos: state.todo.todos,
-  todoSize: state.todo.todos.length,
-})
+const mapStateToProps = state => (
+  { ...state.todo }
+)
 
-export default connect(mapStateToProps, { editTodo })(TodoDataGrid)
+export default connect(mapStateToProps, { editTodo, filterTodos, sortTodos })(TodoDataGrid)
