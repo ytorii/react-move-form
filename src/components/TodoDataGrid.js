@@ -18,20 +18,22 @@ const columns = [
   }
 ]
 
-export default class TodoDataGrid extends Component {
-  rowGetter = (i) => {
-    return this.props.todos[i]
-  }
+const handleGridRowsUpdated = ({rowIds, updated}) => {
+  console.log(rowIds)
+  console.log(updated)
+}
 
-  render() {
-    return  (
-      <ReactDataGrid
-        enableCellSelect={true}
-        columns={columns}
-        rowGetter={this.rowGetter}
-        rowsCount={this.props.todoSize}
-        minHeight={500}
-      />
-    )
-  }
+export default props => {
+  const rowGetter = (i) => props.todos[i]
+
+  return (
+    <ReactDataGrid
+      enableCellSelect={true}
+      columns={columns}
+      rowGetter={rowGetter}
+      rowsCount={props.todoSize}
+      minHeight={500}
+      onGridRowsUpdated={handleGridRowsUpdated}
+    />
+  )
 }
