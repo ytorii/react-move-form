@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 
+import { editTodo } from '../actions/todo'
 import TodoDataGrid from '../components/TodoDataGrid'
 
 const mapStateToProps = state => ({
@@ -7,4 +8,4 @@ const mapStateToProps = state => ({
   todoSize: state.todo.todos.length,
 })
 
-export default connect(mapStateToProps)(TodoDataGrid)
+export default connect(mapStateToProps, { editTodo })(TodoDataGrid)

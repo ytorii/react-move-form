@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDataGrid from 'react-data-grid'
 
 const columns = [
@@ -18,19 +18,18 @@ const columns = [
   }
 ]
 
-const handleGridRowsUpdated = ({rowIds, updated}) => {
-  console.log(rowIds)
-  console.log(updated)
-}
+const rowGetterFactory = todos => i => todos[i]
 
 export default props => {
-  const rowGetter = (i) => props.todos[i]
+  const handleGridRowsUpdated = ({rowIds, updated}) => {
+    props.editTodo(rowIds, updated)
+  }
 
   return (
     <ReactDataGrid
       enableCellSelect={true}
       columns={columns}
-      rowGetter={rowGetter}
+      rowGetter={rowGetterFactory(props.todos)}
       rowsCount={props.todoSize}
       minHeight={500}
       onGridRowsUpdated={handleGridRowsUpdated}
