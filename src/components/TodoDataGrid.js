@@ -89,17 +89,19 @@ export default props => {
   }
 
   return (
-    <ReactDataGrid
-      columns={columns}
-      rowGetter={rowGetter}
-      rowsCount={getRowsSize()}
-      minHeight={500}
-      enableCellSelect={true}
-      onGridRowsUpdated={handleGridRowsUpdated}
-      toolbar={<Toolbar enableFilter={true}/>}
-      onGridSort={handleGridSort}
-      onAddFilter={handleFilterChange}
-      onClearFilters={onClearFilters}
-    />
+    <div style={{padding: '20px' }} >
+      <ReactDataGrid
+        columns={columns}
+        rowGetter={rowGetter}
+        rowsCount={getRowsSize()}
+        minHeight={500}
+        enableCellSelect={true}
+        onGridRowsUpdated={handleGridRowsUpdated}
+        toolbar={<Toolbar enableFilter={true}/>}
+        onGridSort={handleGridSort}
+        onAddFilter={handleFilterChange}
+        onClearFilters={onClearFilters}
+      />
+    </div>
   )
 }

@@ -4,6 +4,7 @@ import store from './store'
 
 import TodoForm from './containers/TodoForm'
 import TodoDataGrid from './containers/TodoDataGrid'
+import TodoDetail from './components/TodoDetail'
 
 import './css/App.css'
 import './css/Body.css'
@@ -25,7 +26,7 @@ class App extends Component {
               <TodoDataGrid />
             </div>
             <div className='col-lg-4'>
-              <TodoDataGrid />
+              <TodoDetail />
             </div>
           </div>
         </div>
