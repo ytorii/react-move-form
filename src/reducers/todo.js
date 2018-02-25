@@ -35,7 +35,7 @@ const createTodosArray = (todosTextArray) => (
 )
 
 const initialState = {
-  lastTodoId: 1,
+  lastTodoId: 10,
   todos: createTodosArray(todosTextArray),
   filters: {},
   sortColumn: null,
@@ -44,10 +44,10 @@ const initialState = {
 
 const addTodo = (state, action) => {
   const id = state.lastTodoId + 1
-  const text = action.payload
+  const { text, priority } = action.payload
   return { ...state,
     lastTodoId: id,
-    todos: [ ...state.todos, { id, text, completed: false } ],
+    todos: [ ...state.todos, { id, text, priority, completed: false } ],
   }
 }
 

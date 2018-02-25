@@ -1,5 +1,5 @@
 import React from 'react';
-import { reduxForm, Field, formValueSelector } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 const validate = values => {
   const errors = {}
@@ -36,7 +36,7 @@ const TodoForm = props => {
       <div>
         <div>
           <Field
-            name='todoText'
+            name='text'
             component={renderField}
             type='text'
             label='Add your TODOS!'

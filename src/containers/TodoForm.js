@@ -6,7 +6,7 @@ import { addTodo } from '../actions/todo'
 
 const TodoForm = ({ addTodo, values }) => (
   <TodoFormComponent
-    onSubmit={ values => addTodo(values.todoText) }
+    onSubmit={ values => addTodo(values) }
   />
 )
 
