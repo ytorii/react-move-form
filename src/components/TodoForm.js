@@ -1,5 +1,9 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import DatePicker from 'react-datepicker'
+import 'moment/locale/ja'
+import moment from 'moment'
+import 'react-datepicker/dist/react-datepicker.css'
 
 const validate = values => {
   const errors = {}
@@ -31,6 +35,7 @@ const renderField = ({
 
 const TodoForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
+  console.log(moment())
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -52,6 +57,9 @@ const TodoForm = props => {
             <option value='4'>4</option>
             <option value='5'>5</option>
           </Field>
+        </div>
+        <div>
+          <DatePicker selected={moment()} />
         </div>
       </div>
       <div>
