@@ -9,7 +9,6 @@ require('react').createClass = require('create-react-class')
 const {
   Toolbar,
   Data: { Selectors },
-  Draggable: { Container: DraggableContainer },
 } = require('react-data-grid-addons')
 
 const columns = [
