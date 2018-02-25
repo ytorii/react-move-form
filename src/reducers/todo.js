@@ -44,10 +44,12 @@ const initialState = {
 
 const addTodo = (state, action) => {
   const id = state.lastTodoId + 1
-  const { text, priority } = action.payload
+  const { text, priority, startDate, deadlineDate } = action.payload
   return { ...state,
     lastTodoId: id,
-    todos: [ ...state.todos, { id, text, priority, completed: false } ],
+    todos: [ ...state.todos,
+      { id, text, priority, startDate, deadlineDate, completed: false }
+    ],
   }
 }
 

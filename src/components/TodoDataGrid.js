@@ -10,7 +10,7 @@ const columns = [
   {
     key: 'id',
     name: 'ID',
-    width: 80
+    width: 40,
   },
   {
     key: 'text',
@@ -24,22 +24,26 @@ const columns = [
     name: 'Priority',
     filterable: true,
     sortable: true,
+    width: 80,
   },
   {
     key: 'startDate',
     name: 'Start Date',
     filterable: true,
-    sortable: true
+    sortable: true,
+    width: 150,
   },
   {
     key: 'deadlineDate',
     name: 'Deadline Date',
     filterable: true,
-    sortable: true
+    sortable: true,
+    width: 120,
   },
   {
     key: 'completed',
     name: 'Completed',
+    width: 120,
   },
 ]
 
