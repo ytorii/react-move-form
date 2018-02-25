@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDataGrid from 'react-data-grid'
+import TodoCompletedFormatter from './formatter/todoCompletedFormatter'
 const PropTypes = require('prop-types');
 PropTypes.component = PropTypes.element;
 require('react').PropTypes = PropTypes;
@@ -43,6 +44,7 @@ const columns = [
   {
     key: 'completed',
     name: 'Completed',
+    formatter: TodoCompletedFormatter,
     width: 120,
   },
 ]
