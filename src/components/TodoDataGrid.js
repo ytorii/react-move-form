@@ -6,7 +6,11 @@ const PropTypes = require('prop-types');
 PropTypes.component = PropTypes.element;
 require('react').PropTypes = PropTypes;
 require('react').createClass = require('create-react-class')
-const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons');
+const {
+  Toolbar,
+  Data: { Selectors },
+  Draggable: { Container: DraggableContainer },
+} = require('react-data-grid-addons')
 
 const columns = [
   {
@@ -86,7 +90,7 @@ export default props => {
 
   const handleRowClick = (_, row) => {
     // RowClick event fired even when clicking Grid Header!
-    row && props.selectTodoDetail({ id: row.id })
+    row && props.selectTodoDetail({ selectedId: row.id })
   }
 
   const onClearFilters = () => {

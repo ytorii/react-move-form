@@ -37,10 +37,6 @@ const createTodosArray = (todosTextArray) => (
 const initialState = {
   lastTodoId: 10,
   todos: createTodosArray(todosTextArray),
-  filters: {},
-  sortColumn: null,
-  sortDirection: null,
-  selectedId: null,
 }
 
 const addTodo = (state, action) => {
@@ -74,35 +70,10 @@ const editTodo = (state, action) => {
   }
 }
 
-const filterTodos = (state, action) => {
-  const { filters } = action.payload
-  return { ...state, 
-    filters,
-  }
-}
-
-const sortTodos = (state, action) => {
-  const { sortColumn, sortDirection } = action.payload
-  return { ...state, 
-    sortColumn,
-    sortDirection,
-  }
-}
-
-const selectTodoDetail = (state, action) => {
-  const { id } = action.payload
-  return { ...state, 
-    selectedId: id,
-  }
-}
-
 const todoReducerMap = {
   ADD_TODO: addTodo,
   COMPLETE_TODO: completeTodo,
   EDIT_TODO: editTodo,
-  FILTER_TODOS: filterTodos,
-  SORT_TODOS: sortTodos,
-  SELECT_TODO_DETAIL: selectTodoDetail,
 }
 
 export default handleActions(todoReducerMap, initialState)

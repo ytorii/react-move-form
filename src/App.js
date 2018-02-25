@@ -16,7 +16,7 @@ class App extends Component {
      <Provider store={store}>
         <div className="App">
           <header className='navbar navbar-expand-lg navbar-dark bg-primary'>
-            <h1 className='navbar-brand'>React-Move exercise!</h1>
+            <h1 className='navbar-brand'>React Data Grid exercise!</h1>
           </header>
           <div className="Body">
             <TodoForm />

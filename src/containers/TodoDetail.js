@@ -2,7 +2,8 @@ import { connect } from 'react-redux'
 import TodoDetail from '../components/TodoDetail'
 
 const mapStateToProps = state => {
-  const { todos, selectedId } = state.todo
+  const { todos } = state.todo
+  const { selectedId } = state.todoDataGrid
   const selectedTodo = todos.find(todo => todo.id === selectedId)
   return { ...selectedTodo }
 }

@@ -4,7 +4,7 @@ import { editTodo, filterTodos, sortTodos, selectTodoDetail } from '../actions/t
 import TodoDataGrid from '../components/TodoDataGrid'
 
 const mapStateToProps = state => (
-  { ...state.todo }
+  { ...state.todo, ...state.todoDataGrid }
 )
 
 export default connect(mapStateToProps,
