@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDataGrid from 'react-data-grid'
 import TodoCompletedFormatter from './formatter/todoCompletedFormatter'
+import 'bootstrap/dist/css/bootstrap.css'
+
 const PropTypes = require('prop-types');
 PropTypes.component = PropTypes.element;
 require('react').PropTypes = PropTypes;
