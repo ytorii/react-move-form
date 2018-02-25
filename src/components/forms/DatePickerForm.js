@@ -6,10 +6,10 @@ import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-export default ({input, label, meta: {touched, error} }) => (
+export default ({input, label, className, meta: {touched, error} }) => (
   <div>
     <label>{label}</label>
-    <DatePicker {...input} dateForm='YYYY/MM/DD' selected={input.value ? moment(input.value) : moment()} />
+    <DatePicker {...input} dateForm='YYYY/MM/DD' className={className} selected={input.value ? moment(input.value) : moment()} />
     {touched && error && <span>{error}</span>}
   </div>
 )

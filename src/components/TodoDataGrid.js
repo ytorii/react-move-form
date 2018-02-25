@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDataGrid from 'react-data-grid'
 import TodoCompletedFormatter from './formatter/todoCompletedFormatter'
-import 'bootstrap/dist/css/bootstrap.css'
 
 const PropTypes = require('prop-types');
 PropTypes.component = PropTypes.element;
@@ -17,35 +16,35 @@ const columns = [
   },
   {
     key: 'text',
-    name: 'Text',
+    name: 'やること',
     editable: true,
     filterable: true,
     sortable: true,
   },
   {
     key: 'priority',
-    name: 'Priority',
+    name: '優先度',
     filterable: true,
     sortable: true,
     width: 80,
   },
   {
     key: 'startDate',
-    name: 'Start Date',
+    name: 'いつから',
     filterable: true,
     sortable: true,
     width: 150,
   },
   {
     key: 'deadlineDate',
-    name: 'Deadline Date',
+    name: '期限',
     filterable: true,
     sortable: true,
     width: 120,
   },
   {
     key: 'completed',
-    name: 'Completed',
+    name: '終わった？',
     formatter: TodoCompletedFormatter,
     width: 120,
   },

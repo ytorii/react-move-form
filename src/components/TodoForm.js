@@ -27,11 +27,12 @@ const TodoForm = props => {
             component={renderTextInput}
             type='text'
             label='Add your TODOS!'
+            className='form-control'
           />
         </div>
         <div>
           <label>Priority</label>
-          <Field name='priority' component='select'>
+          <Field name='priority' component='select' className='form-control'>
             <option></option>
             <option value='1'>1</option>
             <option value='2'>2</option>
@@ -40,24 +41,30 @@ const TodoForm = props => {
             <option value='5'>5</option>
           </Field>
         </div>
-        <div>
-          <Field
-            name='startDate'
-            component={renderDatePicker}
-            label='When to start'
-          />
-          <Field
-            name='deadlineDate'
-            component={renderDatePicker}
-            label='When to end'
-          />
+        <div className='row'>
+          <div className='col-lg-2'>
+            <Field
+              name='startDate'
+              component={renderDatePicker}
+              label='When to start'
+              className='form-control'
+            />
+          </div>
+          <div className='col-lg-2'>
+            <Field
+              name='deadlineDate'
+              component={renderDatePicker}
+              label='When to end'
+              className='form-control'
+            />
+          </div>
         </div>
       </div>
       <div>
-        <button type='submit' disabled={pristine || submitting}>
+        <button type='submit' disabled={pristine || submitting} className='btn btn-primary'>
           やること追加
         </button>
-        <button type='button' disabled={pristine || submitting} onClick={reset}>
+        <button type='button' disabled={pristine || submitting} onClick={reset} className='btn btn-secondary'>
           やりなおし
         </button>
       </div>
