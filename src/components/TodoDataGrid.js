@@ -84,6 +84,11 @@ export default props => {
     props.filterTodos({ filters: newFilters })
   }
 
+  const handleRowClick = (_, row) => {
+    // RowClick event fired even when clicking Grid Header!
+    row && props.selectTodoDetail({ id: row.id })
+  }
+
   const onClearFilters = () => {
     props.filterTodos({ filters: {} });
   }
@@ -101,6 +106,7 @@ export default props => {
         onGridSort={handleGridSort}
         onAddFilter={handleFilterChange}
         onClearFilters={onClearFilters}
+        onRowClick={handleRowClick}
       />
     </div>
   )

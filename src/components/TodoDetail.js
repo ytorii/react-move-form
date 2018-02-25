@@ -12,23 +12,23 @@ export default props => (
       <tbody>
         <tr className='table-light'>
           <th scope='row'>やること</th>
-          <td>Column content</td>
+          <td>{ props.text }</td>
         </tr>
         <tr className='table-light'>
           <th scope='row'>優先度</th>
-          <td>Column content</td>
+          <td>{ props.priority }</td>
         </tr>
         <tr className='table-light'>
           <th scope='row'>いつから</th>
-          <td>Column content</td>
+          <td>{ props.startDate }</td>
         </tr>
         <tr className='table-light'>
           <th scope='row'>期限</th>
-          <td>Column content</td>
+          <td>{ props.deadlineDate }</td>
         </tr>
         <tr className='table-light'>
           <th scope='row'>終わった？</th>
-          <td>Column content</td>
+          <td>{ props.completed ? '終わった！' : 'まだです' }</td>
         </tr>
       </tbody>
     </table>

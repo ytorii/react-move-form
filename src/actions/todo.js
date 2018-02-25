@@ -7,6 +7,7 @@ const actions ={
   completeTodo: 'COMPLETE_TODO',
   filterTodos: 'FILTER_TODOS',
   sortTodos: 'SORT_TODOS',
+  selectTodoDetail: 'SELECT_TODO_DETAIL',
 }
 
 const setEditedTodo = (rowIds, updated) => {
@@ -20,3 +21,5 @@ export const editTodo = createAction(actions.editTodo, setEditedTodo)
 
 export const filterTodos = createAction(actions.filterTodos)
 export const sortTodos = createAction(actions.sortTodos)
+
+export const selectTodoDetail = createAction(actions.selectTodoDetail)

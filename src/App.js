@@ -4,7 +4,7 @@ import store from './store'
 
 import TodoForm from './containers/TodoForm'
 import TodoDataGrid from './containers/TodoDataGrid'
-import TodoDetail from './components/TodoDetail'
+import TodoDetail from './containers/TodoDetail'
 
 import './css/App.css'
 import './css/Body.css'

@@ -40,6 +40,7 @@ const initialState = {
   filters: {},
   sortColumn: null,
   sortDirection: null,
+  selectedId: null,
 }
 
 const addTodo = (state, action) => {
@@ -88,12 +89,20 @@ const sortTodos = (state, action) => {
   }
 }
 
+const selectTodoDetail = (state, action) => {
+  const { id } = action.payload
+  return { ...state, 
+    selectedId: id,
+  }
+}
+
 const todoReducerMap = {
   ADD_TODO: addTodo,
   COMPLETE_TODO: completeTodo,
   EDIT_TODO: editTodo,
   FILTER_TODOS: filterTodos,
   SORT_TODOS: sortTodos,
+  SELECT_TODO_DETAIL: selectTodoDetail,
 }
 
 export default handleActions(todoReducerMap, initialState)
