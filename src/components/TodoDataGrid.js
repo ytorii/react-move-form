@@ -20,9 +20,27 @@ const columns = [
     sortable: true,
   },
   {
+    key: 'priority',
+    name: 'Priority',
+    filterable: true,
+    sortable: true,
+  },
+  {
+    key: 'startDate',
+    name: 'Start Date',
+    filterable: true,
+    sortable: true
+  },
+  {
+    key: 'deadlineDate',
+    name: 'Deadline Date',
+    filterable: true,
+    sortable: true
+  },
+  {
     key: 'completed',
     name: 'Completed',
-  }
+  },
 ]
 
 export default props => {
