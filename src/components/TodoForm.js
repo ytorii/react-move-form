@@ -1,5 +1,5 @@
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, formValueSelector } from 'redux-form';
 
 const validate = values => {
   const errors = {}
@@ -42,11 +42,24 @@ const TodoForm = props => {
             label='Add your TODOS!'
           />
         </div>
+        <div>
+          <label>Priority</label>
+          <Field name='priority' component='select'>
+            <option></option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+          </Field>
+        </div>
       </div>
       <div>
-        <button type='submit' disabled={pristine || submitting}>Submit</button>
+        <button type='submit' disabled={pristine || submitting}>
+          やること追加
+        </button>
         <button type='button' disabled={pristine || submitting} onClick={reset}>
-          Clear Values
+          やりなおし
         </button>
       </div>
     </form>
