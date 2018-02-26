@@ -8,7 +8,7 @@ import TodoDetail from './containers/TodoDetail'
 
 import './css/App.css'
 import './css/Body.css'
-import 'bootswatch/dist/sandstone/bootstrap.min.css'
+import 'bootswatch/dist/spacelab/bootstrap.min.css'
 
 class App extends Component {
   render() {
@@ -18,15 +18,17 @@ class App extends Component {
           <header className='navbar navbar-expand-lg navbar-dark bg-primary'>
             <h1 className='navbar-brand'>React Data Grid exercise!</h1>
           </header>
-          <div className="Body">
-            <TodoForm />
-          </div>
           <div className='row'>
             <div className='col-lg-8'>
               <TodoDataGrid />
             </div>
             <div className='col-lg-4'>
               <TodoDetail />
+            </div>
+          </div>
+          <div className="Body row" style={{ paddingLeft: '20px' }}>
+            <div className='col-lg-8'>
+              <TodoForm />
             </div>
           </div>
         </div>

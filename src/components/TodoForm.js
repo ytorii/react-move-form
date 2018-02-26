@@ -19,56 +19,57 @@ const validate = values => {
 const TodoForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <div>
+    <fieldset>
+      <legend>TODOを追加</legend>
+      <form onSubmit={handleSubmit}>
+        <fieldset className='form-group'>
           <Field
             name='text'
             component={renderTextInput}
             type='text'
-            label='Add your TODOS!'
+            label='TODOを記入'
             className='form-control'
           />
-        </div>
+          <div className='row'>
+            <div className='col-lg-4'>
+              <label>優先度</label>
+              <Field name='priority' component='select' className='form-control'>
+                <option></option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+              </Field>
+            </div>
+            <div className='col-lg-4'>
+              <Field
+                name='startDate'
+                component={renderDatePicker}
+                label='いつから'
+                className='form-control'
+              />
+            </div>
+            <div className='col-lg-4'>
+              <Field
+                name='deadlineDate'
+                component={renderDatePicker}
+                label='期限'
+                className='form-control'
+              />
+            </div>
+          </div>
+        </fieldset>
         <div>
-          <label>Priority</label>
-          <Field name='priority' component='select' className='form-control'>
-            <option></option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-          </Field>
+          <button type='submit' disabled={pristine || submitting} className='btn btn-primary'>
+            やること追加
+          </button>
+          <button type='button' disabled={pristine || submitting} onClick={reset} className='btn btn-secondary'>
+            やりなおし
+          </button>
         </div>
-        <div className='row'>
-          <div className='col-lg-2'>
-            <Field
-              name='startDate'
-              component={renderDatePicker}
-              label='When to start'
-              className='form-control'
-            />
-          </div>
-          <div className='col-lg-2'>
-            <Field
-              name='deadlineDate'
-              component={renderDatePicker}
-              label='When to end'
-              className='form-control'
-            />
-          </div>
-        </div>
-      </div>
-      <div>
-        <button type='submit' disabled={pristine || submitting} className='btn btn-primary'>
-          やること追加
-        </button>
-        <button type='button' disabled={pristine || submitting} onClick={reset} className='btn btn-secondary'>
-          やりなおし
-        </button>
-      </div>
-    </form>
+      </form>
+    </fieldset>
   );
 };
 

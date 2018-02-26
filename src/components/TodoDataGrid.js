@@ -102,10 +102,11 @@ export default props => {
         columns={columns}
         rowGetter={rowGetter}
         rowsCount={getRowsSize()}
-        minHeight={500}
+        minHeight={450}
+        maxHeight={450}
         enableCellSelect={true}
         onGridRowsUpdated={handleGridRowsUpdated}
-        toolbar={<Toolbar enableFilter={true}/>}
+        toolbar={<Toolbar enableFilter={true} />}
         onGridSort={handleGridSort}
         onAddFilter={handleFilterChange}
         onClearFilters={onClearFilters}
