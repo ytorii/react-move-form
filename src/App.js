@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import TodoForm from './containers/TodoForm'
-import TodoDataGrid from './containers/TodoDataGrid'
+import TodoHotTable from './containers/TodoHotTable'
 import TodoDetail from './containers/TodoDetail'
 
 import './css/App.css'
@@ -20,7 +20,7 @@ class App extends Component {
           </header>
           <div className='row'>
             <div className='col-lg-8'>
-              <TodoDataGrid />
+              <TodoHotTable />
             </div>
             <div className='col-lg-4'>
               <TodoDetail />
