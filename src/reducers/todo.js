@@ -35,7 +35,7 @@ const createTodosArray = (todosTextArray) => (
 )
 
 const initialState = {
-  lastTodoId: 10,
+  lastTodoId: todosTextArray.length,
   todos: createTodosArray(todosTextArray),
 }
 
@@ -61,11 +61,11 @@ const completeTodo = (state, action) => {
 }
 
 const editTodo = (state, action) => {
-  const { id, text } = action.payload
+  const { id, ...rest } = action.payload
   return { ...state,
     todos: state.todos.map(todo =>
       (todo.id === id)
-        ? { ...todo, text } : todo
+        ? { ...todo, ...rest } : todo
     )
   }
 }

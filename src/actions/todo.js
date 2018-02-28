@@ -17,7 +17,7 @@ const setEditedTodo = (rowIds, updated) => {
 
 export const addTodo = createAction(actions.addTodo)
 export const completeTodo = createAction(actions.completeTodo)
-export const editTodo = createAction(actions.editTodo, setEditedTodo)
+export const editTodo = createAction(actions.editTodo)
 
 export const filterTodos = createAction(actions.filterTodos)
 export const sortTodos = createAction(actions.sortTodos)

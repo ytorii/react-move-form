@@ -38,14 +38,15 @@ export default class TodoHotTable extends Component {
           stretchH='all'
           onAfterChange={ (c, s) => {
             if (s !== 'loadData'){
-              const row = c[0][0]
-              const id = this.getIdValue(row)
-              console.log(id)
+              const id = this.getIdValue(c[0][0])
+              const param = { [c[0][1]]: c[0][3] }
+              console.log({id, ...param})
+              this.props.editTodo({id, ...param})
             }
           }}
           onAfterSelection={ (r, c) => {
-            const id = this.getIdValue(r)
-            console.log(id)
+            const selectedId = this.getIdValue(r)
+            this.props.selectTodoDetail({selectedId})
           }}
         />
       </div>
