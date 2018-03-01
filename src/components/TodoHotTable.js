@@ -44,7 +44,6 @@ export default class TodoHotTable extends Component {
             if (s !== 'loadData'){
               const id = this.getIdValue(c[0][0])
               const param = { [c[0][1]]: c[0][3] }
-              console.log({id, ...param})
               this.props.editTodo({id, ...param})
             }
           }}

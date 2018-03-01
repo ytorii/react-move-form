@@ -14,7 +14,7 @@ const actions ={
 
 export const addTodo = createAction(actions.addTodo, todo.create)
 export const completeTodo = createAction(actions.completeTodo)
-export const editTodo = createAction(actions.editTodo)
+export const editTodo = createAction(actions.editTodo, todo.update)
 export const fetchTodos = createAction(actions.fetchTodos, todo.all)
 
 export const filterTodos = createAction(actions.filterTodos)

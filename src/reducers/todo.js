@@ -24,22 +24,21 @@ const addTodo = (state, action) => {
   }
 }
 
+const editTodo = (state, action) => {
+  const updatedTodo = localedTodo(ConvertCase.camelKeysOf(action.payload))
+  return { ...state,
+    todos: state.todos.map(todo =>
+      (todo.id === updatedTodo.id) ? updatedTodo : todo
+    )
+  }
+}
+
 const completeTodo = (state, action) => {
   const id = action.payload
   return { ...state,
     todos: state.todos.map(todo =>
       (todo.id === id)
         ? { ...todo, completed: !todo.completed} : todo
-    )
-  }
-}
-
-const editTodo = (state, action) => {
-  const { id, ...rest } = action.payload
-  return { ...state,
-    todos: state.todos.map(todo =>
-      (todo.id === id)
-        ? { ...todo, ...rest } : todo
     )
   }
 }

@@ -40,7 +40,7 @@ export default class Base {
   update = (params: Object) => {
     const url = pathToRegexp.compile(this.endpoints.update)(params)
     return this.client
-      .post(url, ConvertCase.snakeKeysOf(params)).then(this.onSuccess, this.onFailure)
+      .patch(url, ConvertCase.snakeKeysOf(params)).then(this.onSuccess, this.onFailure)
   }
 
   delete = (params: number) => {
