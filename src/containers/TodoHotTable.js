@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { editTodo, filterTodos, selectTodoDetail } from '../actions/todo'
+import { editTodo, fetchTodos, filterTodos, selectTodoDetail } from '../actions/todo'
 import TodoHotTable from '../components/TodoHotTable'
 
 const mapStateToProps = state => (
@@ -8,4 +8,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps,
-  { editTodo, filterTodos, selectTodoDetail })(TodoHotTable)
+  { editTodo, fetchTodos, filterTodos, selectTodoDetail })(TodoHotTable)

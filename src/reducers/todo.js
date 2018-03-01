@@ -1,46 +1,21 @@
 // @flow
 import { handleActions } from 'redux-actions'
+import ConvertCase from '../utils/ConvertCase'
 
-const getRandomDate = (start, end) => (
-  new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleDateString()
+const toCamelCase = payload => (
+  payload.map(val => ConvertCase.camelKeysOf(val))
 )
 
-const getRandomInt = (min, max) => (
-  Math.floor( Math.random() * (max - min + 1) ) + min
-)
-
-const todosTextArray= [
-  'Take a train and a bus',
-  'Go to the company',
-  'Study about domain',
-  'Study about React',
-  'Study about Postgres',
-  'Tell about the Redux',
-  'Decide infrastructure configurations',
-  'Develop application insanity fast',
-  'Release new application',
-  'Contribute to a company!',
-]
-
-const createTodosArray = (todosTextArray) => (
-  todosTextArray.map( (text, idx) => (
-    { id: idx + 1,
-      text,
-      priority: getRandomInt(1, 5),
-      startDate: getRandomDate(new Date(2018, 3, 1), new Date()),
-      deadlineDate: getRandomDate(new Date(), new Date(2018, 7, 1)),
-      completed: false,
-    }
-  ))
+const toLocaleDate = date => (
+  new Date(date).toLocaleDateString()
 )
 
 const initialState = {
-  lastTodoId: todosTextArray.length,
-  todos: createTodosArray(todosTextArray),
+  todos: []
 }
 
 const addTodo = (state, action) => {
-  const id = state.lastTodoId + 1
+  const id = state.todos.length + 1
   const { text, priority, startDate, deadlineDate } = action.payload
   return { ...state,
     lastTodoId: id,
@@ -70,10 +45,23 @@ const editTodo = (state, action) => {
   }
 }
 
+const fetchTodos = (state, action) => {
+  const todos = toCamelCase(action.payload)
+  
+  return { ...state,
+    todos: todos.map( todo => ({
+      ...todo,
+      startDate: toLocaleDate(todo.startDate),
+      deadlineDate: toLocaleDate(todo.deadlineDate),
+    }))
+  }
+}
+
 const todoReducerMap = {
   ADD_TODO: addTodo,
   COMPLETE_TODO: completeTodo,
   EDIT_TODO: editTodo,
+  FETCH_TODOS: fetchTodos,
 }
 
 export default handleActions(todoReducerMap, initialState)

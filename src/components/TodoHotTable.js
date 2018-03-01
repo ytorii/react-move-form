@@ -19,6 +19,10 @@ const columns = [
 
 
 export default class TodoHotTable extends Component {
+  componentDidMount() {
+    this.props.fetchTodos()
+  }
+
   getCellValue = (row, column) => (
     this.refs.hot.hotInstance.getDataAtCell(row, column)
   )
