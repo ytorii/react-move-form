@@ -13,7 +13,7 @@ import 'bootswatch/dist/spacelab/bootstrap.min.css'
 class App extends Component {
   render() {
     return (
-     <Provider store={store}>
+     <Provider store={store()}>
         <div className="App">
           <header className='navbar navbar-expand-lg navbar-dark bg-primary'>
             <h1 className='navbar-brand'>React Data Grid exercise!</h1>
