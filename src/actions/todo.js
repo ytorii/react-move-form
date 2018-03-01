@@ -12,7 +12,7 @@ const actions ={
   selectTodoDetail: 'SELECT_TODO_DETAIL',
 }
 
-export const addTodo = createAction(actions.addTodo)
+export const addTodo = createAction(actions.addTodo, todo.create)
 export const completeTodo = createAction(actions.completeTodo)
 export const editTodo = createAction(actions.editTodo)
 export const fetchTodos = createAction(actions.fetchTodos, todo.all)

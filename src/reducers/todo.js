@@ -2,26 +2,25 @@
 import { handleActions } from 'redux-actions'
 import ConvertCase from '../utils/ConvertCase'
 
-const toCamelCase = payload => (
-  payload.map(val => ConvertCase.camelKeysOf(val))
-)
-
 const toLocaleDate = date => (
   new Date(date).toLocaleDateString()
 )
+
+const localedTodo = todo => ({
+  ...todo,
+  startDate: toLocaleDate(todo.startDate),
+  deadlineDate: toLocaleDate(todo.deadlineDate),
+})
+
 
 const initialState = {
   todos: []
 }
 
 const addTodo = (state, action) => {
-  const id = state.todos.length + 1
-  const { text, priority, startDate, deadlineDate } = action.payload
+  const todo = localedTodo(ConvertCase.camelKeysOf(action.payload))
   return { ...state,
-    lastTodoId: id,
-    todos: [ ...state.todos,
-      { id, text, priority, startDate, deadlineDate, completed: false }
-    ],
+    todos: [ ...state.todos, todo ],
   }
 }
 
@@ -46,14 +45,10 @@ const editTodo = (state, action) => {
 }
 
 const fetchTodos = (state, action) => {
-  const todos = toCamelCase(action.payload)
+  const todos = action.payload.map(val => ConvertCase.camelKeysOf(val))
   
   return { ...state,
-    todos: todos.map( todo => ({
-      ...todo,
-      startDate: toLocaleDate(todo.startDate),
-      deadlineDate: toLocaleDate(todo.deadlineDate),
-    }))
+    todos: todos.map(todo => localedTodo(todo))
   }
 }
 
