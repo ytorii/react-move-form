@@ -3,7 +3,7 @@ import TodoDetail from '../components/TodoDetail'
 
 const mapStateToProps = state => {
   const { todos } = state.todo
-  const { selectedId } = state.todoDataGrid
+  const { selectedId } = state.todoHot
   const selectedTodo = todos.find(todo => todo.id === selectedId)
   return { ...selectedTodo }
 }

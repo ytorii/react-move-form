@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import TodoForm from './containers/TodoForm'
+import TodoFilter from './containers/TodoFilter'
 import TodoHotTable from './containers/TodoHotTable'
 import TodoDetail from './containers/TodoDetail'
 
@@ -16,13 +17,14 @@ class App extends Component {
      <Provider store={store()}>
         <div className="App">
           <header className='navbar navbar-expand-lg navbar-dark bg-primary'>
-            <h1 className='navbar-brand'>React Data Grid exercise!</h1>
+            <h1 className='navbar-brand'>Handsontable exercise!</h1>
           </header>
           <div className='row'>
             <div className='col-lg-8'>
               <TodoHotTable />
             </div>
             <div className='col-lg-4'>
+              <TodoFilter />
               <TodoDetail />
             </div>
           </div>

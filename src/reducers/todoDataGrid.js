@@ -15,9 +15,9 @@ const setPayloadToState = (state, action) => (
 )
 
 const todoReducerMap = {
-  FILTER_TODOS: setPayloadToState,
-  SORT_TODOS: setPayloadToState,
-  SELECT_TODO_DETAIL: setPayloadToState,
+  //FILTER_TODOS: setPayloadToState,
+  //SORT_TODOS: setPayloadToState,
+  //SELECT_TODO_DETAIL: setPayloadToState,
   GROUP_BY_ATTRIBUTES: setPayloadToState,
   SET_EXPANDED_ROWS: setPayloadToState,
 }
