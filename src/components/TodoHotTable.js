@@ -29,9 +29,22 @@ export default class TodoHotTable extends Component {
 
   getIdValue = row => this.getCellValue(row, 0)
 
+  afterChangeHandler = (c, s) => {
+    if (s !== 'loadData'){
+      const id = this.getIdValue(c[0][0])
+      const param = { [c[0][1]]: c[0][3] }
+      this.props.editTodo({id, ...param})
+    }
+  }
+
+  afterSelectionHandler = (r, c) => {
+    const selectedId = this.getIdValue(r)
+    this.props.selectTodoDetail({selectedId})
+  }
+
   render(){
     return (
-      <div style={{padding: '20px' }} >
+      <div style={{paddingLeft: '20px' }} >
         <HotTable
           root='hot'
           ref='hot'
@@ -40,17 +53,8 @@ export default class TodoHotTable extends Component {
           columns={columns}
           columnSorting
           stretchH='all'
-          onAfterChange={ (c, s) => {
-            if (s !== 'loadData'){
-              const id = this.getIdValue(c[0][0])
-              const param = { [c[0][1]]: c[0][3] }
-              this.props.editTodo({id, ...param})
-            }
-          }}
-          onAfterSelection={ (r, c) => {
-            const selectedId = this.getIdValue(r)
-            this.props.selectTodoDetail({selectedId})
-          }}
+          onAfterChange={this.afterChangeHandler}
+          onAfterSelection={this.afterSelectionHandler}
         />
       </div>
     )

@@ -5,7 +5,7 @@ import TodoHotTable from '../components/TodoHotTable'
 
 const filterTodoByText = (todos, string) => {
   if(string){
-    const regexp = new RegExp(`${string}`)
+    const regexp = new RegExp(`${string}`, 'i')
     return todos.filter(todo => regexp.test(todo.text))
   } else {
     return todos
