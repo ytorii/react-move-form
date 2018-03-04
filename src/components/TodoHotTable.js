@@ -58,6 +58,11 @@ export default class TodoHotTable extends Component {
     this.props.selectTodoDetail({selectedId})
   }
 
+  afterSortHandler = (ci, order) => {
+    const column = columns[ci].data
+    this.props.sortTodos({column, order})
+  }
+
   render(){
     return (
       <div style={{paddingLeft: '20px' }} >
@@ -71,6 +76,7 @@ export default class TodoHotTable extends Component {
           stretchH='all'
           onAfterChange={this.afterChangeHandler}
           onAfterSelection={this.afterSelectionHandler}
+          onAfterColumnSort={this.afterSortHandler}
         />
       </div>
     )

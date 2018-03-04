@@ -1,5 +1,6 @@
 // @flow
 import { handleActions } from 'redux-actions'
+import _ from 'lodash'
 import ConvertCase from '../utils/ConvertCase'
 
 const toLocaleDate = date => (
@@ -33,29 +34,38 @@ const editTodo = (state, action) => {
   }
 }
 
-const completeTodo = (state, action) => {
-  const id = action.payload
+const fetchTodos = (state, action) => {
+  const convertedTodos = action.payload.map(val => ConvertCase.camelKeysOf(val))
+  const localedTodos = convertedTodos.map(todo => localedTodo(todo))
+  const sortedTodos = sortTodosByColumn(localedTodos, 'id', undefined)
+  
   return { ...state,
-    todos: state.todos.map(todo =>
-      (todo.id === id)
-        ? { ...todo, completed: !todo.completed} : todo
-    )
+    todos: sortedTodos
   }
 }
 
-const fetchTodos = (state, action) => {
-  const todos = action.payload.map(val => ConvertCase.camelKeysOf(val))
-  
+const sortTodosByColumn = (todos, column, order) => {
+  if(order === undefined){
+    return _.orderBy(todos, ['id'],['asc'])
+  }
+
+  const orderBy = order ? 'asc' : 'desc'
+
+  return  _.orderBy(todos, [column], [orderBy])
+}
+
+const sortTodos = (state, action) => {
+  const { column, order } = action.payload
   return { ...state,
-    todos: todos.map(todo => localedTodo(todo))
+    todos: sortTodosByColumn(state.todos, column, order)
   }
 }
 
 const todoReducerMap = {
   ADD_TODO: addTodo,
-  COMPLETE_TODO: completeTodo,
   EDIT_TODO: editTodo,
   FETCH_TODOS: fetchTodos,
+  SORT_TODOS: sortTodos,
 }
 
 export default handleActions(todoReducerMap, initialState)
