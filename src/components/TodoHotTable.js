@@ -10,11 +10,27 @@ const columns = [
   { data: 'text' },
   {
     data: 'priority',
-    sortIndicator: true
+    sortIndicator: true,
+    type: 'dropdown',
+    source: [1, 2, 3, 4, 5],
   },
-  { data: 'startDate' },
-  { data: 'deadlineDate' },
-  { data: 'completed' },
+  { data: 'startDate',
+    type: 'date',
+    dateFormat: 'YYYY/MM/DD',
+    correctFormat: true,
+    defaultDate: '2018/01/01',
+  },
+  {
+    data: 'deadlineDate',
+    type: 'date',
+    dateFormat: 'YYYY/MM/DD',
+    correctFormat: true,
+    defaultDate: '2018/01/01',
+  },
+  {
+    data: 'completed',
+    type: 'checkbox',
+  }
 ]
 
 
